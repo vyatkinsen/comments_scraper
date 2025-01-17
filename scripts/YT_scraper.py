@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import scrapetube
+import pandas as pd
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from youtube_comment_downloader import YoutubeCommentDownloader
@@ -15,7 +16,6 @@ except Exception as e:
     print(f"Ошибка при обработке даты: {e}")
     sys.exit(1)
 
-# Загрузка channel_mapping из переменной окружения и парсинг JSON
 channel_mapping = json.loads(os.getenv('CHANNEL_MAPPING', '{}'))
 
 channel_ids = list(channel_mapping.keys())
@@ -78,4 +78,4 @@ youtube_df = pd.DataFrame(all_results)
 youtube_df.sort_values(by='date', inplace=True)
 youtube_df.to_csv('output/youtube_comments.csv', index=False, encoding='utf-8-sig')
 
-print("Сбор комментариев завершён. Данные сохранены в youtube_comments.csv.")
+print("Сбор комментариев завершён. Данные сохранены в /output/youtube_comments.csv.")

@@ -76,4 +76,4 @@ comments_df = pd.DataFrame(all_comments_data)
 comments_df.sort_values(by='date', inplace=True)
 comments_df.to_csv('output/instagram_comments.csv', index=False, encoding='utf-8-sig')
 
-print("Сбор комментариев завершён. Данные сохранены в instagram_comments.csv.")
+print("Сбор комментариев завершён. Данные сохранены в /output/instagram_comments.csv.")
