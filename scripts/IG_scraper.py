@@ -1,14 +1,13 @@
 import os
 import sys
 import json
+import pandas as pd
 from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
 from instagrapi import Client
-import pandas as pd
-from dotenv import load_dotenv  # Для загрузки .env
+from dotenv import load_dotenv
 
-load_dotenv()  # Загружаем переменные окружения из .env
+load_dotenv()
 
 if len(sys.argv) < 2:
     print("Укажите дату в формате YYYY-MM-DD в качестве аргумента.")

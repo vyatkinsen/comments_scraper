@@ -1,14 +1,13 @@
 import os
 import sys
 import json
+import scrapetube
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
-import scrapetube
 from youtube_comment_downloader import YoutubeCommentDownloader
-from dotenv import load_dotenv  # Импортируем для работы с .env
+from dotenv import load_dotenv
 
-load_dotenv()  # Загрузка переменных окружения из .env файла
+load_dotenv()
 
 try:
     filter_date = datetime.fromisoformat(sys.argv[1])
