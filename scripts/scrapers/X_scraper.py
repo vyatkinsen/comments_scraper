@@ -1,3 +1,4 @@
+import asyncio
 import os
 import sys
 import json
@@ -75,8 +76,10 @@ async def main():
     if results:
         df = pd.DataFrame(results)
         df.sort_values(by="Date", inplace=True)
-        df.to_csv("output/raw_comments/X_comments.csv", index=False, encoding="utf-8-sig")
+        df.to_csv("../output/raw_comments/X_comments.csv", index=False, encoding="utf-8-sig")
         print("Сбор ответов на твиты завершён. Данные сохранены в output/raw_comments/X_comments.csv")
     else:
         print("Нет данных для сохранения.")
 
+if __name__ == "__main__":
+    asyncio.run(main())
